@@ -11,14 +11,12 @@ const SignUp = () => {
     password: "",
   });
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     const copySignupInfo = { ...signupInfo };
 
     copySignupInfo[name] = value;
     setSignupInfo(copySignupInfo);
-
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,17 +34,20 @@ const SignUp = () => {
         body: JSON.stringify(signupInfo),
       });
       const result = await response.json();
-      const{success,message,error}=result;
+      const { success, message, error } = result;
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-            window.location.href = "http://localhost:5173/login";
+          const loginUrl =
+            window.location.hostname === "localhost"
+              ? "http://localhost:5173/login"
+              : "https://equitrade-dashboard.onrender.com/login";
+          window.location.href = loginUrl;
         }, 1000);
       } else if (error) {
-        const errMsg=error?.details[0]?.message
+        const errMsg = error?.details[0]?.message;
         handleError(errMsg);
       }
-    
     } catch (error) {
       handleError(error);
     }
@@ -109,7 +110,15 @@ const SignUp = () => {
             </button>
             <p className="text-center mt-3">
               Already have an account?{" "}
-              <Link to="http://localhost:5173/login">Login</Link>
+              <a
+                href={
+                  window.location.hostname === "localhost"
+                    ? "http://localhost:5173/login"
+                    : "https://equitrade-dashboard.onrender.com/login"
+                }
+              >
+                Login
+              </a>
             </p>
           </form>
           <ToastContainer />

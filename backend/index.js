@@ -16,7 +16,11 @@ const cookieParser = require("cookie-parser");
 
 const PORT = process.env.PORT || 3002;
 const URL = process.env.MONGO_URL;
-const allowedOrigins = ["http://localhost:5173", "http://localhost:5174"];
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "https://equitrade-dashboard.onrender.com",
+];
 app.use(
   cors({
     origin: function (origin, callback) {
