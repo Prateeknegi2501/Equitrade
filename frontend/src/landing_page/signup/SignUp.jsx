@@ -41,7 +41,7 @@ const SignUp = () => {
           const loginUrl =
             window.location.hostname === "localhost"
               ? "http://localhost:5173/login"
-              : "https://equitrade-dashboard.onrender.com/login";
+              : "https://equitrade-dashboard.netlify.app/login";
           window.location.href = loginUrl;
         }, 1000);
       } else if (error) {
@@ -114,7 +114,7 @@ const SignUp = () => {
                 href={
                   window.location.hostname === "localhost"
                     ? "http://localhost:5173/login"
-                    : "https://equitrade-dashboard.onrender.com/login"
+                    : "https://equitrade-dashboard.netlify.app/login"
                 }
               >
                 Login
