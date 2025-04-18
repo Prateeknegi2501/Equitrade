@@ -19,7 +19,7 @@ const URL = process.env.MONGO_URL;
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
-  "https://equitrade-dashboard.onrender.com",
+  "https://equitrade-dashboard.netlify.app",
 ];
 app.use(
   cors({

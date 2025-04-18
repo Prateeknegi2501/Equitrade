@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 import Apps from "./Apps";
 import Funds from "./Funds";
@@ -9,16 +9,20 @@ import Orders from "./Orders";
 import Positions from "./Positions";
 import Summary from "./Summary";
 import WatchList from "./WatchList";
-import  { GeneralContextProvider } from "./GeneralContext";
+import { GeneralContextProvider } from "./GeneralContext";
 
-
+const navigate = useNavigate();
 const Dashboard = () => {
- useEffect(() => {
-   const token = localStorage.getItem("token");
-   if (!token) {
-     window.location.href = "http://localhost:5173/login"; 
-   }
- }, []);  
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate(
+        window.location.hostname === "localhost"
+          ? "http://localhost:5173/login"
+          : "https://equitrade-dashboard.netlify.app/login"
+      );
+    }
+  }, []);
   return (
     <div className="dashboard-container">
       <GeneralContextProvider>

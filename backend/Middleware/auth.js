@@ -8,6 +8,7 @@ const isLoggedIn = (req, res, next) => {
     return res
       .status(403)
       .send({ message: "Unauthorized! JWT token is required" });
+
   }
   try {
     const decoded = jwt.verify(token, process.env.SECRET);
