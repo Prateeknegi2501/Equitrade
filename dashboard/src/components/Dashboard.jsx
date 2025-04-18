@@ -11,8 +11,8 @@ import Summary from "./Summary";
 import WatchList from "./WatchList";
 import { GeneralContextProvider } from "./GeneralContext";
 
-const navigate = useNavigate();
 const Dashboard = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
