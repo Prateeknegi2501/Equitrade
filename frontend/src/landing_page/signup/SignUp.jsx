@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { handleError, handleSuccess } from "../util/error";
 
 const SignUp = () => {
-  const navigate = useNavigate();
   const [signupInfo, setSignupInfo] = useState({
     name: "",
     email: "",
@@ -40,11 +38,11 @@ const SignUp = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          navigate(
+          const loginUrl =
             window.location.hostname === "localhost"
               ? "http://localhost:5173/login"
-              : "https://equitrade-dashboard.netlify.app/login"
-          );
+              : "https://equitrade-dashboard.netlify.app/login";
+          window.location.href = loginUrl;
         }, 1000);
       } else if (error) {
         const errMsg = error?.details[0]?.message;
