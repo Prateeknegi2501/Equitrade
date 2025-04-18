@@ -16,13 +16,13 @@ const Dashboard = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      navigate(
-        window.location.hostname === "localhost"
-          ? "http://localhost:5173/login"
-          : "https://equitrade-dashboard.netlify.app/login"
-      );
+      const isLocal = window.location.hostname === "localhost";
+      const loginUrl = isLocal
+        ? "http://localhost:5173/login"
+        : "https://equitrade-frontend.netlify.app/login"; 
+      window.location.href = loginUrl;
     }
-  }, [navigate]);
+  }, []);
   return (
     <div className="dashboard-container">
       <GeneralContextProvider>
