@@ -22,7 +22,7 @@ const Dashboard = () => {
           : "https://equitrade-dashboard.netlify.app/login"
       );
     }
-  }, []);
+  }, [navigate]);
   return (
     <div className="dashboard-container">
       <GeneralContextProvider>
