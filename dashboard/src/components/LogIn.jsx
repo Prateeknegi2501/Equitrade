@@ -103,7 +103,7 @@ const Login = () => {
             <ul className="flex flex-col lg:flex-row lg:ml-auto gap-4 mt-4 lg:mt-0 text-white">
               <li>
                 <Link
-                  to="http://localhost:5174/signup"
+                  to="https://equitrade-frontend.netlify.app/signup"
                   className="hover:underline"
                 >
                   Signup
@@ -111,7 +111,7 @@ const Login = () => {
               </li>
               <li>
                 <Link
-                  to="http://localhost:5174/about"
+                  to="https://equitrade-frontend.netlify.app/about"
                   className="hover:underline"
                 >
                   About
@@ -119,7 +119,7 @@ const Login = () => {
               </li>
               <li>
                 <Link
-                  to="http://localhost:5174/products"
+                  to="https://equitrade-frontend.netlify.app/products"
                   className="hover:underline"
                 >
                   Products
@@ -127,7 +127,7 @@ const Login = () => {
               </li>
               <li>
                 <Link
-                  to="http://localhost:5174/pricing"
+                  to="https://equitrade-frontend.netlify.app/pricing"
                   className="hover:underline"
                 >
                   Pricing
@@ -135,7 +135,7 @@ const Login = () => {
               </li>
               <li>
                 <Link
-                  to="http://localhost:5174/support"
+                  to="https://equitrade-frontend.netlify.app/support"
                   className="hover:underline"
                 >
                   Support
@@ -193,12 +193,15 @@ const Login = () => {
             </button>
             <p className="text-center mt-4 text-md text-gray-600">
               Don't have an account?{" "}
-              <Link
-                to="http://localhost:5174/signup"
-                className="text-blue-600 hover:underline"
+              <a
+                href={
+                  window.location.hostname === "localhost"
+                    ? "http://localhost:5174/signup"
+                    : "https://equitrade-frontend.netlify.app/signup"
+                }
               >
-                Signup
-              </Link>
+                Sign Up
+              </a>
             </p>
           </form>
           <ToastContainer />

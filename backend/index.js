@@ -20,6 +20,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
   "https://equitrade-dashboard.netlify.app",
+  "https://equitrade-frontend.netlify.app/"
 ];
 app.use(
   cors({
