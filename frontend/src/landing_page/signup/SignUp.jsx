@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
-const navigate = useNavigate;
+const navigate = useNavigate();
 import { ToastContainer } from "react-toastify";
 import { handleError, handleSuccess } from "../util/error";
 
