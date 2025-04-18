@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const navigate = useNavigate();
 import { ToastContainer } from "react-toastify";
 import { handleError, handleSuccess } from "../util/error";
@@ -39,11 +39,7 @@ const SignUp = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          navigate(
-            window.location.hostname === "localhost"
-              ? "http://localhost:5173/login"
-              : "https://equitrade-dashboard.netlify.app/login"
-          );
+          navigate("https://equitrade-dashboard.netlify.app/login");
         }, 1000);
       } else if (error) {
         const errMsg = error?.details[0]?.message;
@@ -111,15 +107,9 @@ const SignUp = () => {
             </button>
             <p className="text-center mt-3">
               Already have an account?{" "}
-              <a
-                href={
-                  window.location.hostname === "localhost"
-                    ? "http://localhost:5173/login"
-                    : "https://equitrade-dashboard.netlify.app/login"
-                }
-              >
-                Login
-              </a>
+              <Link to={"https://equitrade-dashboard.netlify.app/login"}>
+                <h2>Login</h2>
+              </Link>
             </p>
           </form>
           <ToastContainer />
