@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+const navigate = useNavigate;
 import { ToastContainer } from "react-toastify";
 import { handleError, handleSuccess } from "../util/error";
 
@@ -38,11 +39,11 @@ const SignUp = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          const loginUrl =
+          navigate(
             window.location.hostname === "localhost"
               ? "http://localhost:5173/login"
-              : "https://equitrade-dashboard.netlify.app/login";
-          window.location.href = loginUrl;
+              : "https://equitrade-dashboard.netlify.app/login"
+          );
         }, 1000);
       } else if (error) {
         const errMsg = error?.details[0]?.message;
