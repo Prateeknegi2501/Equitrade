@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
-const navigate = useNavigate();
+
 import { ToastContainer } from "react-toastify";
 import { handleError, handleSuccess } from "../util/error";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [signupInfo, setSignupInfo] = useState({
     name: "",
     email: "",
